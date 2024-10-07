@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>videoChat</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='index.css'>
+</head>
+<body>
+
+    <div id="videos">
+        <video class="video-player" id="local-video" autoplay playsinline></video>
+        <video class="video-player" id="remote-video" autoplay playsinline></video>
+
+    <div id="controls">
+
+        <div class="control-container" id="start">
+            <img src="img/nouvel-utilisateur.png" alt="indispo"/>
+        </div>
+
+        <div class="control-container" id="audio">
+            <img src="img/appel-vocal.png" alt="indispo"/>
+        </div>
+
+        <div class="control-container" id="video">
+            <img src="img/appel-video.png" alt="indispo" />
+        </div>
+
+        <div class="control-container" id="chat">
+            <img src="img/messager.png"  alt="indispo"/>
+        </div>
+
+
+    </div>
+
+    
+    <div class="chat-box" id="chat-box">
+        <h2> chat </h2>
+        <div class="close-chat" id="close">
+            <img src="img/proche.png" class="close-img" alt="close" />
+        </div>
+        <div class="chat-messages" id="chat-messages">
+
+        </div>
+        <div class="input">
+            <input type="text" id="chat-input" placeholder="Type your message here" />
+            <button id="send">Send</button>
+        </div>
+       
+    </div>
+
+    
+</body>
+<script src='client.js'></script>
+</html>

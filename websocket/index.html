@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Websocket simple example</title>
+  </head>
+  <body>
+    <textarea
+      rows="5"
+      cols="50"
+      id="dataChannelSend"
+      disabled
+      placeholder="
+1: Press Start; 2: Enter text; 3: Press
+Send."
+    ></textarea>
+    <textarea rows="5" cols="50" id="dataChannelReceive" disabled></textarea>
+    <div id="buttons">
+      <button id="connectButton">Connect</button>
+      <button id="sendButton">Send</button>
+      <button id="closeButton">Stop</button>
+    </div>
+    <script>
+      var ws;
+      var connectButton = document.getElementById('connectButton');
+      var sendButton = document.getElementById('sendButton');
+      var closeButton = document.getElementById('closeButton');
+      var textArea = document.getElementById('dataChannelSend');
+
+      connectButton.onclick = function () {
+        ws = new WebSocket('ws://localhost:3000');
+        ws.onopen = function () {
+          console.log('Connection opened!');
+          connectButton.disabled = true;
+          sendButton.disabled = false;
+          closeButton.disabled = false;
+          textArea.disabled = false;
+        };
+
+        ws.onmessage = function (event) {
+          // document.getElementById('dataChannelReceive').value = event.data;
+          event.data.text().then((text) => {
+            document.getElementById('dataChannelReceive').value = text;
+          });
+        };
+
+        ws.onclose = function () {
+          console.log('Connection closed!');
+          resetUI();
+        };
+
+        ws.onerror = function (error) {
+          console.log('WebSocket Error: ' + error);
+          resetUI();
+        };
+      };
+
+      sendButton.onclick = function () {
+        var data = document.getElementById('dataChannelSend').value;
+        ws.send(data);
+        console.log('Sent data: ' + data);
+      };
+
+      closeButton.onclick = function () {
+        ws.close();
+      };
+
+      function resetUI() {
+        connectButton.disabled = false;
+        sendButton.disabled = true;
+        closeButton.disabled = true;
+        document.getElementById('dataChannelSend').value = '';
+        document.getElementById('dataChannelReceive').value = '';
+      }
+    </script>
+  </body>
+</html>

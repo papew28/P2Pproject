@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" id="WebApp_ID" version="5.0">
+ <display-name>Tp1</display-name>
+ <welcome-file-list>
+           <welcome-file>greeting.html</welcome-file>
+            <welcome-file>greeting.jsp</welcome-file>
+ </welcome-file-list>
+ <servlet>
+            <description></description>
+            <display-name>GreetingServlet</display-name>
+            <servlet-name>GreetingServlet</servlet-name>
+            <servlet-class>exple1.GreetingServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+             <servlet-name>GreetingServlet</servlet-name>
+             <url-pattern>/Hello</url-pattern>
+</servlet-mapping>
+
+</web-app>

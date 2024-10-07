@@ -1,0 +1,220 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#videos{
+    display: grid;
+    grid-template-columns: 1fr;
+    height: 100vh;
+    overflow:hidden;
+}
+
+.video-player{
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#remote-video{
+    display: none;
+}
+
+.smallFrame{
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    height: 170px;
+    width: 300px;
+    border-radius: 5px;
+    border:2px solid #b366f9;
+    -webkit-box-shadow: 3px 3px 15px -1px rgba(0,0,0,0.77);
+    box-shadow: 3px 3px 15px -1px rgba(0,0,0,0.77);
+    z-index: 999;
+}
+
+
+
+
+
+#controls{
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform:translateX(-50%);
+    display: flex;
+    gap: 1em;
+}
+
+
+.control-container{
+  background-color: rgb(179, 102, 249, .9);
+  padding: 20px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.control-container img{
+    height: 30px;
+    width: 30px;
+}
+
+#leave-btn{
+    background-color: rgb(255,80,80, 1);
+}
+
+
+.chat-box {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    bottom: 20px;
+    right: 20px; 
+    max-width: 400px; 
+    max-height: 60vh; 
+    width: 100%; 
+    height: 100%; 
+    border-radius: 10px;
+    box-shadow: 0 0 1.25em 0.25em rgba(0, 0, 0, 0.2); 
+    background-color: #ffffff; 
+    border: 1px solid #ccc; 
+    overflow-y: auto; 
+    transform: translateX(calc(100% + 20px)); 
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .chat-box.show {
+    transform: translateX(0); 
+  }
+  
+  .chat-box h2 {
+    color: #333; 
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500; 
+    text-align: center;
+    padding: 10px;
+    background-color: #f5f5f5; 
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  
+  .chat-box::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  .chat-box::-webkit-scrollbar-track {
+    background-color: #f1f1f1; 
+  }
+  
+  .chat-box::-webkit-scrollbar-thumb {
+    background-color: #888; 
+    border-radius: 4px; 
+  }
+  
+  .chat-box::-webkit-scrollbar-thumb:hover {
+    background-color: #555; 
+  }
+
+.close-img{ width: 30px;}
+.close-chat {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    color: #888;
+    transition: color 0.3s ease;
+  }
+  
+  .close-chat:hover {
+    color: #333;
+  }
+  
+ 
+  .message {
+    max-width: 80%;
+    padding: 10px 15px;
+    margin: 10px;
+    border-radius: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+    word-wrap: break-word;
+  }
+  
+  .user1 {
+    background-color: #dcf8c6; 
+    margin-left: auto;
+  }
+  
+  .user2 {
+    background-color: #e2e2e2; 
+    margin-right: auto; /
+  }
+  
+  .first {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+.input {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    height: 60px; 
+    background-color: #f5f5f5; 
+    padding: 10px;
+    border-top: 1px solid #ccc; 
+  }
+  
+  #send {
+    background-color: #4CAF50; 
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #send:hover {
+    background-color: #3e8e41; 
+  }
+  
+  #chat-input {
+    flex-grow: 1; 
+    height: 100%;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    outline: none;
+    font-size: 1em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #333;
+    background-color: #ffffff;
+    padding: 0 10px;
+  }
+  
+  #chat-input:focus {
+    border-color: #4CAF50; 
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.3); 
+  }
+@media screen and (max-width:600px) {
+        .smallFrame{
+            height: 80px;
+            width: 120px;
+        }
+
+        .control-container img{
+            height: 20px;
+            width: 20px;
+        }
+}

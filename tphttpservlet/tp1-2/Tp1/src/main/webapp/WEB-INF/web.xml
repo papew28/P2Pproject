@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" id="WebApp_ID" version="5.0">
+ <display-name>Tp1</display-name>
+ <servlet>
+            <description></description>
+            <display-name>GreetingServlet</display-name>
+            <servlet-name>GreetingServlet</servlet-name>
+            <servlet-class>exple1.GreetingServlet</servlet-class>
+ </servlet>
+ <servlet-mapping>
+             <servlet-name>GreetingServlet</servlet-name>
+             <url-pattern>/Hello</url-pattern>
+</servlet-mapping>
+
+<security-role>
+        <role-name>tomcat</role-name>
+</security-role>
+
+<security-constraint>
+    <web-resource-collection>
+        <web-resource-name>Greeting Servlet</web-resource-name>
+        <url-pattern>/Hello</url-pattern>
+    </web-resource-collection>
+    <auth-constraint>
+        <role-name>tomcat</role-name>
+    </auth-constraint>
+</security-constraint>
+
+ <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>myrealm</realm-name>
+ </login-config>
+
+</web-app>
